@@ -11,6 +11,7 @@ import shellphish_afl
 import logging
 
 l = logging.getLogger("fuzzer.fuzzer")
+l.setLevel(logging.WARN)
 
 config = { }
 
@@ -164,7 +165,8 @@ class Fuzzer(object):
             self.afl_dir          = shellphish_afl.afl_dir(self.os)
 
             # the path to AFL capable of calling driller
-            self.afl_path         = shellphish_afl.afl_bin(self.os)
+            # self.afl_path         = shellphish_afl.afl_bin(self.os)
+            self.afl_path = "../afl-radamsa/afl-fuzz"
 
             if self.os == 'cgc':
                 self.afl_path_var = shellphish_afl.afl_path_var('cgc')
